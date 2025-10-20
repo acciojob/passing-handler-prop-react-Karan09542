@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Child.css";
-const Selection = ({ applyColor, color, selectedId }) => {
+const Selection = ({ applyColor }) => {
+  const [bgColor, setBgColor] = useState("");
   function handleClick() {
-    applyColor(selectedId)
+    applyColor((nbg) => setBgColor(nbg.background));
   }
   return (
     <div
       className="fix-box"
-      style={{ backgroundColor: color }}
+      style={{ backgroundColor: bgColor }}
       onClick={handleClick}
     >
       Selection
